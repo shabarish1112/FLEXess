@@ -2,7 +2,7 @@
 
 Independent local-first Android and browser nutrition diary development build. The bundled catalog uses USDA Foundation Foods and preserves source attribution. See docs/FOOD_CATALOG.md.
 
-Team: [Contribution parts](docs/TEAM_CONTRIBUTIONS.md) — Shabarish (host/maintainer), Pramod (backend/database), Harshita (consumer UI/UX), Prajwal (admin/data/sync/QA). The four non-overlapping parts preserve repository-relative paths and combine into this single project.
+Team: [Your member instructions](../README.md) — Shabarish (host/maintainer), Pramod (backend/database), Harshita (consumer UI/UX), Prajwal (admin/data/sync/QA). This extracted workspace contains the complete project source. Your assigned editing scope and upload instructions are in the outer member README.
 
 UI/UX: [Design system](docs/DESIGN_SYSTEM.md) · [Feature completeness](docs/FEATURE_COMPLETENESS.md) · [Audit](docs/UI_UX_AUDIT.md) · [Figma](https://www.figma.com/design/leE6qFHI8f29Y5LKxJSrak).
 
