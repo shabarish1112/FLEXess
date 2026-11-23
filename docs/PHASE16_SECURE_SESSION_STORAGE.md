@@ -1,3 +1,0 @@
-# Phase 16 secure session storage
-
-Access tokens stay in memory. Refresh tokens use flutter_secure_storage, scoped by issuer, audience, client and API. Android automatic backup is disabled to avoid restoring encrypted credentials without the device key. Startup restores by refreshing and calling /v1/me. Failed renewal leaves the signed-in view. Renewal is serialized, and logout clears local credentials and attempts provider revocation. Account and guest database files are separate. An offline cold start cannot confirm identity and falls back to the guest scope. Platform storage and revocation still need device verification.

@@ -1,5 +1,0 @@
-# Phase 12 authentication implementation
-
-FastAPI verifies RS256 RFC 9068 access tokens with PyJWT and HTTPS JWKS. Required configuration: IDENTITY_ISSUER, IDENTITY_AUDIENCE, IDENTITY_JWKS_URL and IDENTITY_CLIENT_ID, plus DATABASE_URL. The issuer must match including any trailing slash. A partial identity configuration fails startup. Protected routes reject requests when no provider is configured. The synthetic test adapter supplies an in-process RSA public key only; no production test bypass is registered.
-
-Validated claims include signature, issuer, audience, expiration, issued-at time, token ID, native client ID and subject. An issuer/subject pair maps to a server-owned UUID. Disabling a local account denies access even with a valid token. A live provider tenant, API registered for RFC 9068 access tokens, native client registration and verified redirect URIs are still required to integrate sign-in, sign-up, reset, renewal, logout and platform secure session storage. No mobile account controls are exposed yet.
