@@ -1,0 +1,7 @@
+# Phase 19 tracker synchronization
+
+Account goals, weight, water, and exercise use the existing owner-scoped FastAPI sync routes and durable SQLite outbox. SQLite commits the local change and operation together. Outgoing records carry a stable remote UUID through a namespaced local mapping. The backend keeps the same revision and idempotency protocol. Goals preserve date, kcal and whole-gram macros encoded in milligrams, with water, goal weight and optional exercise credit. Weight uses grams, water uses mL, and exercise uses minutes, intensity, category and optional kcal. Existing omitted optional fields are preserved for receipt replay compatibility.
+
+The inbox applies validated tracker changes with the cursor in one SQLite transaction. A pending local change blocks replacement, and a separate goal identity for an already occupied date is stored as a conflict. A post-commit notification refreshes open Tracking and Progress views. The account pull invalidates Riverpod diary and goal providers. Interactive resolution of goal collisions and tracker conflicts is still open.
+
+The isolated Android APK built and installed. The guest UI opened Weight, Exercise and Water. A guarded 250 mL record appeared in the Water total and Progress, then was deleted to restore the baseline. Goal, weight and exercise write flows were covered on the host; signed-in device projection remains unverified.

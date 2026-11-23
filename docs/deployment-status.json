@@ -1,0 +1,67 @@
+{
+  "updated": "2026-11-21",
+  "budget": "INR 0; free tiers only; no payment method or automatic upgrades",
+  "development": {
+    "firebaseProject": "flex-fitness-dev-98e76",
+    "firebasePlanVerified": "Spark ($0/month), console verified",
+    "webApp": "1:214799248068:web:95772d33a8e23e219c7791",
+    "androidApp": "1:214799248068:android:303d61c64e7197e49c7791",
+    "androidPackage": "dev.independent.fitness_diary.isolatedtest",
+    "googleSignIn": "Enabled, console verified after user approval",
+    "androidFingerprints": "SHA-1 and SHA-256 registered for the debug certificate",
+    "realSms": "Not enabled; application rejects real-number verification",
+    "neonProject": "lingering-hat-03950947",
+    "database": "flex",
+    "schemaRevision": "0003",
+    "runtimeRole": "flex_api; TLS and restricted permissions verified",
+    "apiUrl": "https://flex-nutrition-api-dev.onrender.com",
+    "hostingUrl": "https://flex-fitness-dev-98e76.web.app",
+    "adminHostingUrl": "https://flex-fitness-dev-98e76-admin.web.app",
+    "googleAcceptance": "Live Google login succeeded; backend account provisioned after Firebase token verification",
+    "adminAcceptance": "Consumer denied, user-approved Admin role assigned through audited operator CLI, live overview/users/operations succeeded."
+  },
+  "production": {
+    "firebaseProject": "flex-fitness-98e76",
+    "firebaseConfiguration": "Spark verified; Google enabled after approval. Existing email/phone providers preserved; no billing changes.",
+    "neonProject": "dawn-rain-07967942",
+    "database": "flex",
+    "schemaRevision": "0003",
+    "runtimeRole": "flex_api; TLS and restricted permissions verified",
+    "apiUrl": "https://flex-nutrition-api.onrender.com",
+    "hostingUrl": "https://flex-fitness-98e76.web.app",
+    "adminHostingUrl": "https://flex-fitness-98e76-admin.web.app",
+    "realSms": "No real SMS requested. Existing phone provider preserved; application rejects production phone verification.",
+    "googleAcceptance": "Live Google login succeeded; backend account uses exact production Firebase issuer and separate production database.",
+    "adminAcceptance": "Approved owner Admin role assigned and audited; real production dashboard and full-reload session restoration verified."
+  },
+  "neonOrganization": "org-falling-queen-77164617",
+  "neonPlanVerified": "free",
+  "neonCompute": "0.25 CU, plan-default automatic suspension, separate projects",
+  "render": "Two Free services deployed: srv-dc0bu517lnhs73cn5rt0 (development), srv-dc0c2t7f3r2c73b3i58g (production). Hobby workspace, no payment method. Both HTTPS live/ready=200; anonymous admin=401. Exact development consumer/admin CORS verified; untrusted production CORS rejected.",
+  "deploymentSource": {
+    "repository": "https://github.com/shabarish1112/FLEX-Nutrition-API",
+    "visibility": "private",
+    "branch": "codex/flex-2-free-deploy",
+    "commit": "003455c",
+    "contents": "Reviewed backend and Render Free configuration only"
+  },
+  "applicationDeployment": "Consumer and admin published for both environments on Spark. Both Render Free APIs passed HTTPS/database readiness. Live Google login and approved administrator access succeeded in both environments; production staff session restored after reload. Configured isolated Android x86_64 2.0.1-dev (4) and ARM64 2.0.2-dev (5) builds succeeded. Native runtime testing awaits explicit emulator install authorization.",
+  "androidDevelopmentArtifact": {
+    "versionName": "2.0.1-dev",
+    "sha256": "CFC61EE409988CF479531FAE47AB7BD1AE95360F9BED75ECA08153C2AE30B0F4",
+    "versionCode": 4,
+    "flutterEngineAbi": "x86_64",
+    "path": "mobile/build/releases/FLEX-2.0.1-dev-x86_64-isolated-debug.apk",
+    "nativeLoginVerified": false,
+    "package": "dev.independent.fitness_diary.isolatedtest"
+  },
+  "androidPhoneArtifact": {
+    "flutterEngineAbi": "arm64-v8a",
+    "versionCode": 5,
+    "sha256": "137BCD78C6AD18D8C92F7D4482E70BFCB85B69EED2BA76143B98439EACC25FC6",
+    "nativeLoginVerified": false,
+    "package": "dev.independent.fitness_diary.isolatedtest",
+    "versionName": "2.0.2-dev",
+    "path": "mobile/build/releases/FLEX-2.0.2-dev-arm64-isolated-debug.apk"
+  }
+}

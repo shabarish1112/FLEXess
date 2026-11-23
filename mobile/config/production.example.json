@@ -1,0 +1,10 @@
+{
+  "FLEX_ENVIRONMENT": "production",
+  "FLEX_FIREBASE_PHONE_TESTS": "false",
+  "FLEX_API_URL": "",
+  "FLEX_FIREBASE_PROJECT_ID": "flex-fitness-98e76",
+  "FLEX_FIREBASE_APP_ID": "1:768569397258:web:4fd4c3e37e2bc76eb44ff3",
+  "FLEX_FIREBASE_API_KEY": "",
+  "FLEX_FIREBASE_SENDER_ID": "768569397258",
+  "FLEX_FIREBASE_AUTH_DOMAIN": "flex-fitness-98e76.firebaseapp.com"
+}

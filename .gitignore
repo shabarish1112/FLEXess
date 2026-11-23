@@ -1,0 +1,27 @@
+.env
+*.sqlite
+backend/.deps/
+backend/.venv/
+**/__pycache__/
+.pytest_cache/
+.gradle-local/
+.gradle-retry/
+.pg-smoke-*/
+*.apk
+*.db
+*.db-*
+*.sqlite-*
+.env.*
+!.env.example
+docs/android-*.xml
+mobile/android/local.properties
+catalog-staging/
+*.jks
+*.keystore
+mobile/config/*.local.json
+.firebase/
+firebase-debug.log
+.deployment/
+# Generated, shareable member workspaces and archives; canonical source stays above.
+/team/*/FLEX/
+/team/*.zip

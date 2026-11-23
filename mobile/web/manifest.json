@@ -1,0 +1,19 @@
+{
+    "name": "FLEX Nutrition Diary",
+    "short_name": "FLEX",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#10121B",
+    "theme_color": "#10121B",
+    "description": "Your meals, water, weight and activity in one local diary.",
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "flex.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

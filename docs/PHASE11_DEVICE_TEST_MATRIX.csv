@@ -1,0 +1,13 @@
+Case,Status,Evidence
+ADB shell and boot state,TESTED,Commands returned exit 0 and boot state 1
+Existing FLEX launch,TESTED,Window focus on original FLEX MainActivity
+Real USDA search and serving preview,TESTED,USDA release attribution and 194 kcal for two servings; temporary draft discarded
+Diary commit delete and restart,TESTED,One Breakfast test row survived restart and was removed by verified confirmation
+Diary edit and baseline totals,PENDING,No edit or independent daily total comparison
+Goals and tracking device flows,BLOCKED,See Android E2E report
+Empty invalid duplicate draft and date device cases,BLOCKED,Flutter tests provide partial independent coverage
+Fresh install,PENDING,Use separate disposable emulator; preserve existing data
+Diary and Breakfast search navigation,TESTED,Package-verified hierarchy and search input hint
+Phase 12 standard Android x86_64 build,TESTED,Offline assembleDebug completed and standard APK saved
+Phase 12 isolated fresh install and diary edit with totals,BLOCKED,Host memory exhausted in Dart and JVM during debug assembly
+Phase 12 tracker and progress device flows,PENDING,Flutter persistence and widget tests only

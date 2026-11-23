@@ -1,0 +1,7 @@
+# Phase 16 identity provider decision
+
+Selected Auth0 Universal Login with native AppAuth authorization code and PKCE. Auth0's RFC 9068 access-token profile carries client_id, which the existing FastAPI verifier requires in addition to RS256, issuer, audience, token ID and expiry. Keeping that contract avoids a new token-verification path. Firebase and Supabase were considered; a separate provider contract was unnecessary for this implementation. Tenant cost and operational limits must be checked against the actual plan before rollout.
+
+Provision an isolated Auth0 tenant with a public Native application, Authorization Code and Refresh Token grants, and callback dev.independent.fitness_diary.auth://callback. Enable the database connection and Universal Login signup/recovery, configure email delivery and verification policy, and enable refresh-token rotation and suitable lifetimes. Register the FLEX API with a dedicated audience, RS256, RFC 9068 and offline access. Set backend IDENTITY_ISSUER, IDENTITY_AUDIENCE, IDENTITY_CLIENT_ID and IDENTITY_JWKS_URL. Configure client build defines FLEX_IDENTITY_ISSUER, FLEX_IDENTITY_AUDIENCE, FLEX_IDENTITY_CLIENT_ID and FLEX_API_URL. Use an HTTPS origin reachable by the emulator. No client secret is used by Flutter.
+
+References: https://dev.auth0.com/docs/universal-login and https://support.auth0.com/center/s/article/receive-the-client-id-claim-instead-of-the-azp-claim-in-an-auth0-access-token.

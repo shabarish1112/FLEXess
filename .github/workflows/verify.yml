@@ -1,0 +1,65 @@
+name: FLEX verification
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: python -m pip install -r backend/requirements-runtime.lock pytest pip-audit openapi-spec-validator
+      - run: python -m pytest -q
+        working-directory: backend
+      - run: sudo apt-get update && sudo apt-get install -y postgresql
+      - run: python scripts/phase12-postgres-smoke.py "$(pg_config --bindir)"
+      - run: python -m openapi_spec_validator contracts/design.openapi.yaml
+      - run: python -c "from app.main import create_app; from app.config import Settings; from openapi_spec_validator import validate; validate(create_app(Settings(database_url='sqlite://')).openapi())"
+        working-directory: backend
+      - run: pip-audit -r backend/requirements-runtime.lock
+      - run: docker build -t flex-api:test backend
+  mobile:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.47.0"
+      - run: flutter pub get
+      - run: dart format --output=none --set-exit-if-changed lib test
+      - run: flutter analyze
+      - run: flutter test
+      - run: flutter build web --release --no-web-resources-cdn
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flex-browser-build
+          path: mobile/build/web
+          retention-days: 7
+      - run: flutter build apk --debug
+      - run: flutter build web --release --target lib/admin_main.dart --output build/admin --no-web-resources-cdn
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flex-admin-browser-build
+          path: mobile/build/admin
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flex-debug-apk
+          path: mobile/build/app/outputs/flutter-apk/app-debug.apk
+          retention-days: 7
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: docker run --rm -v "${{ github.workspace }}:/repo:ro" ghcr.io/gitleaks/gitleaks:v8.24.3 git --redact /repo

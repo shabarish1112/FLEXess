@@ -1,0 +1,16 @@
+services:
+  api:
+    build: ./backend
+    env_file: ${FLEX_API_ENV_FILE:?Set FLEX_API_ENV_FILE}
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - "${FLEX_POSTGRES_CA_PATH:?Set FLEX_POSTGRES_CA_PATH}:/run/flex/postgres-ca.pem:ro"
+    restart: unless-stopped
+  migrate:
+    build: ./backend
+    profiles: [migration]
+    env_file: ${FLEX_MIGRATION_ENV_FILE:?Set FLEX_MIGRATION_ENV_FILE}
+    volumes:
+      - "${FLEX_POSTGRES_CA_PATH:?Set FLEX_POSTGRES_CA_PATH}:/run/flex/postgres-ca.pem:ro"
+    command: ["alembic", "upgrade", "head"]

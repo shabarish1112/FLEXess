@@ -1,0 +1,54 @@
+# Explicitly free compute only. Database credentials are set in Render, never in Flutter.
+services:
+  - type: web
+    name: flex-nutrition-api-dev
+    runtime: python
+    rootDir: backend
+    plan: free
+    region: singapore
+    numInstances: 1
+    autoDeployTrigger: 'off'
+    buildCommand: pip install --no-cache-dir -r requirements-runtime.lock
+    startCommand: python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1 --limit-concurrency 32 --no-access-log --no-proxy-headers
+    healthCheckPath: /health/live
+    envVars:
+      - key: FLEX_ENVIRONMENT
+        value: staging
+      - key: FIREBASE_PROJECT_ID
+        value: flex-fitness-dev-98e76
+      - key: DATABASE_CA_FILE
+        value: /etc/ssl/certs/ca-certificates.crt
+      - key: DATABASE_POOL_SIZE
+        value: '2'
+      - key: DATABASE_POOL_OVERFLOW
+        value: '0'
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+  - type: web
+    name: flex-nutrition-api
+    runtime: python
+    rootDir: backend
+    plan: free
+    region: singapore
+    numInstances: 1
+    autoDeployTrigger: 'off'
+    buildCommand: pip install --no-cache-dir -r requirements-runtime.lock
+    startCommand: python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1 --limit-concurrency 32 --no-access-log --no-proxy-headers
+    healthCheckPath: /health/live
+    envVars:
+      - key: FLEX_ENVIRONMENT
+        value: production
+      - key: FIREBASE_PROJECT_ID
+        value: flex-fitness-98e76
+      - key: DATABASE_CA_FILE
+        value: /etc/ssl/certs/ca-certificates.crt
+      - key: DATABASE_POOL_SIZE
+        value: '2'
+      - key: DATABASE_POOL_OVERFLOW
+        value: '0'
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false

@@ -1,0 +1,7 @@
+{
+  "checked_at": "2026-11-20T17:06:26.389068+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages_checked": 129,
+  "scope": "Locked Pub and PyPI packages; excludes Gradle/native dependencies",
+  "findings": []
+}

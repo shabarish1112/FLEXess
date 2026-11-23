@@ -1,0 +1,33 @@
+Feature,Implementation,Verification
+FLEX visible branding,Implemented,APK label and emulator launch
+SQLite v2 migration,Implemented,Flutter test
+Resumable drafts,Implemented,SQLite reopen and emulator restart/single commit
+Local version-aware catalog,Implemented,Flutter tests
+USDA normalization pipeline,Implemented,Synthetic source-format test
+USDA Foundation Foods catalog,Implemented,414 imported rows and offline SQLite search
+Dated macro and energy goals,Implemented,SQLite v3 persistence test
+Backend health,Implemented,Pytest
+Managed identity and synchronization,Pending,No remote diary operations enabled
+Weight and water,Implemented,Persistence and unit conversion tests
+Exercise and opt-in credit,Implemented,Persistence and estimate tests
+Progress history,Implemented,SQLite history coverage
+PostgreSQL migration and readiness,Implemented,Disposable PostgreSQL 18.4 smoke
+Android device catalog and tracking,Blocked,See PHASE11_DEVICE_TEST_MATRIX.csv
+Managed OIDC identity,Planned,Design only
+PostgreSQL owned records and durable sync,Planned,Design only
+Managed JWT verification,Implemented,Synthetic RSA token tests and disabled account
+Owned records and sync receipts,Implemented,Ownership and durable replay tests
+SQLite account diary outbox,Implemented,Atomic local writes and scoped retry
+Live mobile identity and guest transfer,Blocked,OIDC tenant and native client integration pending
+Account diary remote SQLite projection,Unit tested,Independent SQLite stores with fixture receipts
+Authenticated diary transport and projection,Integration tested,Loopback TLS and disposable PostgreSQL with synthetic identities
+Post-commit account diary provider refresh,Integration tested,ProviderContainer reads across independent SQLite stores
+Hosted Auth0 account flow,Implemented,Provider configuration and Android verification pending
+Mobile secure session lifecycle,Unit tested,Provider and vault doubles
+Live Auth0 Android sign-in and diary sync,Blocked,Development tenant Native client audience and HTTPS API configuration are missing
+Auth0 public configuration preflight,Unit tested,No live configuration available
+Isolated Android guest diary restart edit and cleanup,Device tested,USDA banana draft and visible 194 to 291 to 0 kcal totals
+Auth0 hosted browser logout,Implemented,AppAuth RP-Initiated Logout with a separate native return URI
+Open Progress refresh after account diary projection,Implemented,Notified after SQLite commits on the same account store
+Tracker sync and projection,Implemented,Goals weight water exercise over existing account API
+Explicit scoped guest transfer,Implemented,Default-off duplicate-resistant staging with no guest deletion

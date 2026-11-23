@@ -1,0 +1,5 @@
+# Phase 19 guest transfer
+
+A separate FLEX_ENABLE_GUEST_TRANSFER flag defaults off. The signed-in account page shows per-category counts and requires explicit opt-in with nothing selected initially. The dialog can be declined. Approval copies only the selected preview snapshots, preserves guest originals and drafts, and stages upload through the normal account outbox. Copying does not itself perform network I/O. The active account is checked before and during commit.
+
+SQLite v7 adds an account-local provenance ledger linked to stable outbox operation IDs. Copies, ledger entries and operations are written in the same transaction. Re-approval skips staged sources. A failed request leaves the queue and guest originals intact. A same-date account goal aborts staging rather than overwriting account data. The migration initializes a durable local tracker ID counter. New records continue past deleted IDs, so a fresh guest record can be approved independently. Interactive conflict resolution and live Android consent verification remain open.

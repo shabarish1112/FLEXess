@@ -1,0 +1,29 @@
+{
+  "projects": {
+    "production": "flex-fitness-98e76",
+    "development": "flex-fitness-dev-98e76"
+  },
+  "targets": {
+    "flex-fitness-dev-98e76": {
+      "hosting": {
+        "consumer": [
+          "flex-fitness-dev-98e76"
+        ],
+        "admin": [
+          "flex-fitness-dev-98e76-admin"
+        ]
+      }
+    },
+    "flex-fitness-98e76": {
+      "hosting": {
+        "consumer": [
+          "flex-fitness-98e76"
+        ],
+        "admin": [
+          "flex-fitness-98e76-admin"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
